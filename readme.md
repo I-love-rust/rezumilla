@@ -3,6 +3,6 @@
 Don't forget to configure the .env
 
 ```bash
-docker compose build
+make build
 docker compose up
 ```
