@@ -7,13 +7,21 @@ services:
   bot:
     container_name: bot
     build:
-      dockerfile: dockerfile
+      dockerfile: ./bot/dockerfile
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
       - rezumilla
     depends_on:
       - db
+    restart: "on-failure"
+
+  web:
+    container_name: bot-web
+    build:
+      dockerfile: ./web/dockerfile
+    ports:
+      - "3000:80"
     restart: "on-failure"
 
   db:
